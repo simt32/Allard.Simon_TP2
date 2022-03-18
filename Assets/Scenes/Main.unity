@@ -282,8 +282,8 @@ GameObject:
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!154 &134649841
 TerrainCollider:
@@ -914,7 +914,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 62c2301adac597d479127e9e58d8c003, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 62c2301adac597d479127e9e58d8c003, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1484,6 +1484,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8934796634031429567, guid: 5f9cb6d10f205434894f3bf4d4daf77c, type: 3}
   m_PrefabInstance: {fileID: 1966068249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2059311463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c06c013a52ed2f4ebc8175076d8da3c, type: 3}
+  m_PrefabInstance: {fileID: 2119516168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2059311464
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059311463}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bb3cbc664df8c4990aed6b776feb6ecc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!195 &2059311466
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059311463}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1001 &2105280973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1722,7 +1768,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!33 &3921739080376909092
 MeshFilter:
