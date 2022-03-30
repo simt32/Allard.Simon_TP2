@@ -5,13 +5,16 @@ using UnityEngine;
 public class Enemi : MonoBehaviour
 {
     private UnityEngine.AI.NavMeshAgent agent;
+    
     //agent en d�placement ou en pause
     bool isBusy;
+    
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
 
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        
     }
 
     // Update is called once per frame
@@ -20,6 +23,10 @@ public class Enemi : MonoBehaviour
         if (!isBusy)
         {
             StartCoroutine(test());
+        }
+        if (loseLife())
+        {
+            FindObjectOfType<GameManager>().loseLife(true);
         }
     }
 
@@ -51,12 +58,33 @@ public class Enemi : MonoBehaviour
     Vector3 getDestination()
     {
         //-11.5 a 7.5
-        float x = 10.2f;
+        float x = 15.72f;
 
-        float z = -57.25f;
+        float z = -50.89f;
 
 
 
         return new Vector3(x, 0.6f, z);
     }
+    public bool loseLife()
+    {
+        
+        if (agent.remainingDistance > 0.5f)
+        {
+            
+            return false;
+        }
+            
+            
+        else
+        {
+            Destroy(agent);
+            return true;
+        }
+
+
+    }
+
+
+
 }
