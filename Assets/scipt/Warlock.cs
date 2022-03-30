@@ -3,61 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Warlock : MonoBehaviour
+public class Warlock : Enemi
 {
-    NavMeshAgent agent;
-    //agent en déplacement ou en pause
-    bool isBusy;
-    // Start is called before the first frame update
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
+    //private NavMeshAgent agent;
+    ////agent en déplacement ou en pause
+    //bool isBusy;
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+       
 
-    }
+    //}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!isBusy)
-        {
-            StartCoroutine(Enemi());
-        }
-    }
+    //// Update is called once per frame
+    //void Update()
+    //{
+       
+    //}
 
-    IEnumerator Enemi()
-    {
-        isBusy = true;
+    //IEnumerator Enemi()
+    //{
+        
+    //}
 
-        //trouver un edestination
-        Vector3 destination = getDestination();
-
-        //s'y déplacer
-        agent.SetDestination(destination);
-
-
-
-        //tant quon est en déplacement on ne fait rien
-        while (agent.pathPending || agent.remainingDistance > 0.5f)
-
-            yield return null;
-
-
+    //Vector3 getDestination()
+    //{
+        
         
 
-        //je ne suis plus occuper
-
-        isBusy = false;
-    }
-
-    Vector3 getDestination()
-    {
-        //-11.5 a 7.5
-        float x = 10.2f;
         
-        float z = -57.25f;
-
-        
-
-        return new Vector3(x, 0.6f, z);
-    }
+    //}
 }
