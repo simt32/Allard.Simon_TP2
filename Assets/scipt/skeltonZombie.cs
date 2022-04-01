@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class skeltonZombie : MonoBehaviour
+public class skeltonZombie : Enemi
 {
     // Start is called before the first frame update
     void Start()
@@ -15,4 +15,5 @@ public class skeltonZombie : MonoBehaviour
     {
         
     }
+    
 }

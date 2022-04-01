@@ -24,10 +24,10 @@ public class Enemi : MonoBehaviour
         {
             StartCoroutine(test());
         }
-        if (loseLife())
-        {
-            FindObjectOfType<GameManager>().loseLife(true);
-        }
+        //if (loseLife())
+        //{
+            //findObjectOfType<GameManager>().loseLife(true);
+        //}
     }
 
     IEnumerator test()
@@ -66,25 +66,22 @@ public class Enemi : MonoBehaviour
 
         return new Vector3(x, 0.6f, z);
     }
-    public bool loseLife()
-    {
+    //public bool loseLife()
+    //{
         
-        if (agent.remainingDistance > 0.5f)
-        {
+        //if (agent.remainingDistance > 0.5f)
+        //{
             
-            return false;
-        }
+            //return false;
+        //}
             
             
-        else
-        {
-            Destroy(agent);
-            return true;
-        }
+        //else
+        //{
+            //Destroy(agent);
+            //return true;
+        //}
 
 
-    }
-
-
-
+    //}
 }

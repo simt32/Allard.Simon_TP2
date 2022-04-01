@@ -8,15 +8,15 @@ public class GameManager : MonoBehaviour
     
     public Text txt_pv;
     private bool vie = false;
-    public Enemi enemi;
     private int pv = 3;
-    
+    public Spawner spawner;
     
     // Start is called before the first frame update
     void Start()
     {
         
         txt_pv.text = pv.ToString();
+        
     }
 
     // Update is called once per frame
