@@ -12,7 +12,7 @@ public class Enemi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         
     }
@@ -41,9 +41,8 @@ public class Enemi : MonoBehaviour
         agent.SetDestination(destination);
 
 
-
         //tant quon est en d�placement on ne fait rien
-        //while (agent.pathPending || agent.remainingDistance > 0.5f)
+        while (agent.pathPending || agent.remainingDistance > 0.5f)
 
         yield return null;
 
