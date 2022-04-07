@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemi : MonoBehaviour
+public  class Enemi : MonoBehaviour
 {
-    private UnityEngine.AI.NavMeshAgent agent;
     
+    public UnityEngine.AI.NavMeshAgent agent;
+    public int vitess = 1;
     //agent en d�placement ou en pause
     bool isBusy;
-    
+
     // Start is called before the first frame update
-    void Start()
+    
+    
+    public void Start()
     {
         
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -56,13 +59,9 @@ public class Enemi : MonoBehaviour
 
     Vector3 getDestination()
     {
-        //-11.5 a 7.5
+        //trouve la position qu'il doit se rendre
         float x = 15.72f;
-
         float z = -50.89f;
-
-
-
         return new Vector3(x, 0.6f, z);
     }
     //public bool loseLife()

@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public Enemi warrokPrefab;
-    public Enemi nightshadePrefab;
-    public Enemi squeltonzombieprefab;
-    public Enemi enemi;
+    public GameObject warrokPrefab;
+    public GameObject nightshadePrefab;
+    public GameObject squeltonzombieprefab;
+    //public Enemi enemi;
+    skeltonZombie skeltonZombie;
+    
+    
+    private int nbr_ennemi;
     int wave = 1;
     bool ispawn = true;
-    private List<Enemi> listeEnnemi;
+    private List<GameObject> listeEnnemi;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +30,8 @@ public class Spawner : MonoBehaviour
     public void ennemiSpawn()
     {
         StartCoroutine(attendre());
+
+        
         
 
         
@@ -36,11 +42,19 @@ public class Spawner : MonoBehaviour
 
     IEnumerator attendre()
     {
-        Enemi warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
-        yield return new WaitForSeconds(Random.Range(1f,3f));
-        Enemi nightshade = Instantiate(nightshadePrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
-        yield return new WaitForSeconds(Random.Range(1f, 3f));
-        Enemi squeltonzombie = Instantiate(squeltonzombieprefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        GameObject warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        
+        yield return new WaitForSeconds(Random.Range(1f,6f));
+        GameObject nightshade = Instantiate(nightshadePrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        
+        yield return new WaitForSeconds(Random.Range(1f, 6f));
+        GameObject squeltonzombie = Instantiate(squeltonzombieprefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+       
+
+
+
+
+        nbr_ennemi += 3;
 
 
 

@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class NightShade : MonoBehaviour
+public class NightShade :Enemi
 {
-    // Start is called before the first frame update
-    void Start()
+    public int vitesse = 3;
+    public void Awake()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        vitesse = 4;
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = 4;
     }
 }

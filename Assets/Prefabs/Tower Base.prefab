@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8934796634031429567}
   - component: {fileID: 5499209220706506778}
   - component: {fileID: 7761367847675325648}
+  - component: {fileID: 6530321767088439290}
   m_Layer: 0
   m_Name: Tower Base
-  m_TagString: Untagged
+  m_TagString: TurretBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6530321767088439290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8121422378098806021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.441902, y: 3.4419012, z: 1.4219537}
+  m_Center: {x: -0.0000022649765, y: 0.0000001788139, z: 0.60197026}

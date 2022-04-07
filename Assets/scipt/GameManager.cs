@@ -21,11 +21,13 @@ public class GameManager : MonoBehaviour
         //txt_Timer.text = timerStart.ToString("F2");
         spawner.ennemiSpawn();
         
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+
         timer();
         loseLife(vie);
     }
