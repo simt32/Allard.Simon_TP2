@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject warrokPrefab;
-    public GameObject nightshadePrefab;
-    public GameObject squeltonzombieprefab;
+    public Enemi warrokPrefab;
+    public Enemi nightshadePrefab;
+    public Enemi squeltonzombieprefab;
     //public Enemi enemi;
     skeltonZombie skeltonZombie;
     
@@ -42,13 +42,13 @@ public class Spawner : MonoBehaviour
 
     IEnumerator attendre()
     {
-        GameObject warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        Enemi warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
         
         yield return new WaitForSeconds(Random.Range(1f,6f));
-        GameObject nightshade = Instantiate(nightshadePrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        Enemi nightshade = Instantiate(nightshadePrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
         
-        yield return new WaitForSeconds(Random.Range(1f, 6f));
-        GameObject squeltonzombie = Instantiate(squeltonzombieprefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        yield return new WaitForSeconds(Random.Range(3f, 9f));
+        Enemi squeltonzombie = Instantiate(squeltonzombieprefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
        
 
 

@@ -8,16 +8,18 @@ public class skeltonZombie : Enemi
     //private UnityEngine.AI.NavMeshAgent agentSkelton;
     
     
-    public int or = 3;
-    public int pv;
+    
 
-
-
-    public void Awake()
+    public override void Start()
     {
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        base.Start();   
         agent.speed = 5;
+        or = 3;
+        pv = 3;
+
     }
+
+    
     
 
 }

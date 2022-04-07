@@ -4,16 +4,17 @@ using UnityEngine;
 
 public  class Enemi : MonoBehaviour
 {
-    
+    public int or;
+    public int pv;
     public UnityEngine.AI.NavMeshAgent agent;
-    public int vitess = 1;
+    
     //agent en d�placement ou en pause
     bool isBusy;
 
     // Start is called before the first frame update
     
     
-    public void Start()
+    public virtual void Start()
     {
         
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
