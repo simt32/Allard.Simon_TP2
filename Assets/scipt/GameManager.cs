@@ -12,14 +12,15 @@ public class GameManager : MonoBehaviour
     public Spawner spawner;
     public float gameTimer = 0f;
     public Enemi enemi;
-    
+    public List<Enemi> listeEnnemi;
     // Start is called before the first frame update
     void Start()
     {
         
         txt_pv.text = pv.ToString();
-        //txt_Timer.text = timerStart.ToString("F2");
+        
         spawner.ennemiSpawn();
+
         
         
     }
@@ -29,16 +30,17 @@ public class GameManager : MonoBehaviour
     {
 
         timer();
-        loseLife(vie);
+       
+        listeEnnemi = spawner.listeEnnemi;
+        
     }
-    public void loseLife(bool vie)
+    public void loseLife()
     {
-            if (vie == true)
-            {
-                pv -=1;
-                txt_pv.text = pv.ToString();
-            Debug.Log("test");
-            }     
+            
+             pv -=1;
+             txt_pv.text = pv.ToString();
+            
+                 
     }
 
     void timer()
@@ -50,6 +52,9 @@ public class GameManager : MonoBehaviour
         string timerstring = string.Format("{0:0}:{1:00}:{2:00}", heure, minute, seconde);
         txt_Timer.text = timerstring;
     }
+
+
+    
     
 
 

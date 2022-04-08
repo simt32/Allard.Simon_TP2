@@ -6,6 +6,8 @@ TagManager:
   tags:
   - TurretBase
   - occuper
+  - end
+  - Ennemi
   layers:
   - Default
   - TransparentFX

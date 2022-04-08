@@ -5,21 +5,32 @@ using UnityEngine;
 
 public class skeltonZombie : Enemi
 {
+    
     //private UnityEngine.AI.NavMeshAgent agentSkelton;
     
     
     
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();   
         agent.speed = 5;
         or = 3;
         pv = 3;
-
+        
     }
 
+    protected override void Update()
+    {
+
+        base.Update();
+        
+        
+        
+       
+    }
     
+
     
 
 }

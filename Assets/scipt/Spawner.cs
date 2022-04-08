@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     private int nbr_ennemi;
     int wave = 2;
     bool ispawn = true;
-    private List<GameObject> listeEnnemi;
+    public List<Enemi> listeEnnemi;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +30,7 @@ public class Spawner : MonoBehaviour
     public void ennemiSpawn()
     {
         StartCoroutine(attendre());
+        
 
         
         
@@ -46,14 +47,15 @@ public class Spawner : MonoBehaviour
         for (int i = 0; i < wave; i++)
         {
             Enemi warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
-
+            listeEnnemi.Add(warrok);
             yield return new WaitForSeconds(Random.Range(1f, 6f));
             Enemi nightshade = Instantiate(nightshadePrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
-
+            listeEnnemi.Add(nightshade);
             yield return new WaitForSeconds(Random.Range(3f, 9f));
             Enemi squeltonzombie = Instantiate(squeltonzombieprefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
-
+            listeEnnemi.Add(squeltonzombie);
         }
+        yield return listeEnnemi;
 
             
        

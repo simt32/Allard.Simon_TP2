@@ -14,7 +14,7 @@ public  class Enemi : MonoBehaviour
     // Start is called before the first frame update
     
     
-    public virtual void Start()
+    protected virtual void Start()
     {
         
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
@@ -22,11 +22,11 @@ public  class Enemi : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         if (!isBusy)
         {
-            StartCoroutine(test());
+            StartCoroutine(deplacement());
         }
         //if (loseLife())
         //{
@@ -34,7 +34,7 @@ public  class Enemi : MonoBehaviour
         //}
     }
 
-    IEnumerator test()
+    IEnumerator  deplacement()
     {
         isBusy = true;
 
@@ -67,20 +67,21 @@ public  class Enemi : MonoBehaviour
     }
     //public bool loseLife()
     //{
-        
-        //if (agent.remainingDistance > 0.5f)
-        //{
-            
-            //return false;
-        //}
-            
-            
-        //else
-        //{
-            //Destroy(agent);
-            //return true;
-        //}
+
+    //if (agent.remainingDistance > 0.5f)
+    //{
+
+    //return false;
+    //}
+
+
+    //else
+    //{
+    //Destroy(agent);
+    //return true;
+    //}
 
 
     //}
+    
 }
