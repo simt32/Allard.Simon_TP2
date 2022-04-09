@@ -31,11 +31,12 @@ public class skeltonZombie : Enemi
     }
     public override void EnnemiToucher()
     {
-        Debug.Log("toucher");
+        
         pv -= 1;
 
         if (pv == 0)
         {
+            nbrKill += 1;
             Destroy(gameObject);
 
         }

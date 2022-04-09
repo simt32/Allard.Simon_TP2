@@ -51,7 +51,7 @@ public class turretSpawn : MonoBehaviour
 
 
                         test = raycastHit.transform.gameObject;
-                        Debug.Log(test);
+                        
                         //Debug.Log(raycastHit.transform.gameObject);
                         CurrentClickedGameObject(raycastHit.transform.gameObject);
 

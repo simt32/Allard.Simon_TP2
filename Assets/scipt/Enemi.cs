@@ -6,6 +6,7 @@ public  class Enemi : MonoBehaviour
 {
     public int or;
     public int pv;
+    public int nbrKill;
     public UnityEngine.AI.NavMeshAgent agent;
     
     //agent en d�placement ou en pause

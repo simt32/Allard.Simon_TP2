@@ -26,48 +26,18 @@ public class TurretGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (target == null)
         {
             return;
         }
-        //if (delai <= 0f)
-        //{
-
-        //    Toucher();
-        //    delai = 1 / cadence;
-        //}
-        //delai -= Time.deltaTime;
         Vector3 positionEnemi = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(positionEnemi);
         Vector3 rotation = Quaternion.Lerp(Gun_Mid.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
         Gun_Mid.rotation = Quaternion.Euler(-90f,rotation.y,0f);
-      
-
-        //foreach (GameObject ennemi in ennemis)
-        //{
-        //    float distanceToEnemis = Vector3.Distance(transform.position, ennemi.transform.position);
-        //    if (ennemi != null && distanceToEnemis <= range)
-        //    {
-
-        //        target = ennemi.transform;
-        //        //Debug.Log(target);
-        //        InvokeRepeating("Toucher", 2f,2f);
-
-
-        //    }
-        //    else
-        //    {
-        //        target = null;
-        //    }
-        //}
-
     }
 
     void UpdateTarget()
     {
-
-        
         GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Ennemi");
        
         foreach (GameObject ennemi in ennemis)
@@ -80,39 +50,25 @@ public class TurretGun : MonoBehaviour
                 target = ennemi.transform;
                 Toucher();
                 psShoot.Play();
-                source.PlayOneShot(audioClipShoot);
-                
-
+                source.PlayOneShot(audioClipShoot);  
             }
-            //else
-            //{
-            //    Debug.Log("le target est null");
-            //    target = null;
-            //    ennemis = null;
-            //    break;
-            //}
         }
 
     }
     void Toucher()
     {
-        Debug.Log(ennemii.name);
+        
         if (ennemii.name == "warrok(Clone)")
         {
-           
             FindObjectOfType<Warlock>().EnnemiToucher();
         }
-            
         if (ennemii.name == "skeletonzombie(Clone)")
             FindObjectOfType<skeltonZombie>().EnnemiToucher();
         if (ennemii.name == "nightshade(Clone)")
         {
-            Debug.Log(ennemii.name);
-            FindObjectOfType<NightShade>().EnnemiToucher();
-        }
             
-
-
+            FindObjectOfType<NightShade>().EnnemiToucher();
+        }       
     }
     
 

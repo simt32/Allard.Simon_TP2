@@ -17,11 +17,13 @@ public class Warlock : Enemi
 
     public override void EnnemiToucher()
     {
-        Debug.Log("toucher");
+        
         pv -= 1;
 
         if (pv == 0)
         {
+            nbrKill += 1;
+            Debug.Log(nbrKill);
             Destroy(gameObject);
             
         }

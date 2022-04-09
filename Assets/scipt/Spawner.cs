@@ -7,13 +7,14 @@ public class Spawner : MonoBehaviour
     public Enemi warrokPrefab;
     public Enemi nightshadePrefab;
     public Enemi squeltonzombieprefab;
-    //public Enemi enemi;
-    skeltonZombie skeltonZombie;
+    public bool spawnIsFinish = false;
     
     
-    private int nbr_ennemi;
-    int wave = 1;
-    bool ispawn = true;
+    
+    
+    
+    
+    
     public List<Enemi> listeEnnemi;
     // Start is called before the first frame update
     void Start()
@@ -27,9 +28,9 @@ public class Spawner : MonoBehaviour
 
     }
 
-    public void ennemiSpawn()
+    public void ennemiSpawn(int wave)
     {
-        StartCoroutine(attendre());
+        StartCoroutine(attendre(wave));
         
 
         
@@ -41,22 +42,30 @@ public class Spawner : MonoBehaviour
     }
 
 
-    IEnumerator attendre()
+    IEnumerator attendre(int wave)
     {
-        //yield return new WaitForSeconds(20f);
-        for (int i = 0; i < wave; i++)
+
+        spawnIsFinish = false;
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i <= wave; i++)
         {
-            yield return new WaitForSeconds(10f);
-            Enemi warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
-            listeEnnemi.Add(warrok);
-            yield return new WaitForSeconds(Random.Range(1f, 6f));
+
+            yield return new WaitForSeconds(Random.Range(1f, 5f));
             Enemi nightshade = Instantiate(nightshadePrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
             listeEnnemi.Add(nightshade);
-            yield return new WaitForSeconds(Random.Range(3f, 9f));
+            yield return new WaitForSeconds(Random.Range(1f, 5f));
             Enemi squeltonzombie = Instantiate(squeltonzombieprefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
             listeEnnemi.Add(squeltonzombie);
         }
+        yield return new WaitForSeconds(Random.Range(1f, 5f));
+        Enemi warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
+        listeEnnemi.Add(warrok);
+        
+       
+       
         yield return listeEnnemi;
+        spawnIsFinish = true;
+        
 
             
        
@@ -64,7 +73,7 @@ public class Spawner : MonoBehaviour
 
 
 
-        nbr_ennemi += 3;
+        
 
 
 
