@@ -28,8 +28,8 @@ public class turretSpawn : MonoBehaviour
         Debug.Log("test");
 
         slower.onClick.AddListener(btn_Slower_onClicked);
-        cannon.onClick.AddListener(btn_Gun_onClicked);
-        gun.onClick.AddListener(btn_Cannon_onClicked);
+        cannon.onClick.AddListener(btn_Cannon_onClicked);
+        gun.onClick.AddListener(btn_Gun_onClicked);
         cancel.onClick.AddListener(btn_Cancel_onClicked);
         vendre.onClick.AddListener(btn_Vendre_onClicked);
     }
@@ -109,6 +109,7 @@ public class turretSpawn : MonoBehaviour
 
         Debug.Log("bouton click");
         Instantiate(turret_Gun_Prefab, test.transform.position, new Quaternion(-90f, 0f, 0f, 90f));
+        
         //Debug.Log(test.transform.position);
         slower.gameObject.SetActive(false);
         cannon.gameObject.SetActive(false);

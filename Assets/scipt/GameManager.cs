@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,13 +14,19 @@ public class GameManager : MonoBehaviour
     public float gameTimer = 0f;
     public Enemi enemi;
     public List<Enemi> listeEnnemi;
+    private int or;
+    public Button play;
+    public Button Pause;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Pause.onClick.AddListener(btn_pause_onClicked);
+        play.onClick.AddListener(btn_play_onClicked);
+        or = 2;
         txt_pv.text = pv.ToString();
         
         spawner.ennemiSpawn();
+
 
         
         
@@ -37,8 +44,12 @@ public class GameManager : MonoBehaviour
     public void loseLife()
     {
             
-             pv -=1;
-             txt_pv.text = pv.ToString();
+        pv -=1;
+        txt_pv.text = pv.ToString();
+        if(pv == 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
             
                  
     }
@@ -51,6 +62,15 @@ public class GameManager : MonoBehaviour
         int heure = (int)(gameTimer / 3600) % 24;
         string timerstring = string.Format("{0:0}:{1:00}:{2:00}", heure, minute, seconde);
         txt_Timer.text = timerstring;
+    }
+    private void btn_pause_onClicked()
+    {
+        Time.timeScale = 0;
+    }
+
+private void btn_play_onClicked()
+    {
+        Time.timeScale = 1;
     }
 
 

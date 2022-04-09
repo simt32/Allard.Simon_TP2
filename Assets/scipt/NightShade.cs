@@ -6,10 +6,26 @@ using UnityEngine.AI;
 public class NightShade :Enemi
 {
     public int vitesse = 3;
-    public void Awake()
+    protected override void Start()
     {
-        vitesse = 4;
-        agent = GetComponent<NavMeshAgent>();
-        agent.speed = 4;
+        base.Start();
+        agent.speed = 2;
+        or = 3;
+        pv = 5;
+
+    }
+
+
+    public override void EnnemiToucher()
+    {
+        Debug.Log("toucher");
+        pv -= 1;
+
+        if (pv == 0)
+        {
+            Destroy(gameObject);
+
+        }
     }
 }
+

@@ -5,10 +5,27 @@ using UnityEngine.AI;
 
 public class Warlock : Enemi
 {
-    int vitesse = 3;
-    public void Awake()
+    protected override void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        base.Start();
         agent.speed = 3;
+        or = 3;
+        pv = 7;
+        
+
     }
+
+    public override void EnnemiToucher()
+    {
+        Debug.Log("toucher");
+        pv -= 1;
+
+        if (pv == 0)
+        {
+            Destroy(gameObject);
+            
+        }
+        
+    }
+   
 }

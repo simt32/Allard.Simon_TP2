@@ -14,7 +14,7 @@ public class skeltonZombie : Enemi
     protected override void Start()
     {
         base.Start();   
-        agent.speed = 5;
+        agent.speed = 3;
         or = 3;
         pv = 3;
         
@@ -29,8 +29,20 @@ public class skeltonZombie : Enemi
         
        
     }
-    
+    public override void EnnemiToucher()
+    {
+        Debug.Log("toucher");
+        pv -= 1;
 
-    
+        if (pv == 0)
+        {
+            Destroy(gameObject);
 
+        }
+
+
+
+
+    }
 }
+

@@ -11,7 +11,7 @@ public  class Enemi : MonoBehaviour
     //agent en d�placement ou en pause
     bool isBusy;
 
-    // Start is called before the first frame update
+    
     
     
     protected virtual void Start()
@@ -21,31 +21,27 @@ public  class Enemi : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     protected virtual void Update()
     {
         if (!isBusy)
         {
             StartCoroutine(deplacement());
         }
-        //if (loseLife())
-        //{
-            //findObjectOfType<GameManager>().loseLife(true);
-        //}
     }
 
     IEnumerator  deplacement()
     {
         isBusy = true;
 
-        //trouver un edestination
+        //trouver une destination
         Vector3 destination = getDestination();
 
-        //s'y d�placer
+        //si deplacer
         agent.SetDestination(destination);
 
 
-        //tant quon est en d�placement on ne fait rien
+        //tant quon est en deplacement on ne fait rien
         while (agent.pathPending || agent.remainingDistance > 0.5f)
 
         yield return null;
@@ -60,28 +56,15 @@ public  class Enemi : MonoBehaviour
 
     Vector3 getDestination()
     {
-        //trouve la position qu'il doit se rendre
+        //decider de la position
         float x = 15.72f;
         float z = -50.89f;
         return new Vector3(x, 0.6f, z);
     }
-    //public bool loseLife()
-    //{
+    public virtual void EnnemiToucher()
+    {
 
-    //if (agent.remainingDistance > 0.5f)
-    //{
-
-    //return false;
-    //}
+    }
 
 
-    //else
-    //{
-    //Destroy(agent);
-    //return true;
-    //}
-
-
-    //}
-    
 }

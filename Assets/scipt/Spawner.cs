@@ -12,7 +12,7 @@ public class Spawner : MonoBehaviour
     
     
     private int nbr_ennemi;
-    int wave = 2;
+    int wave = 1;
     bool ispawn = true;
     public List<Enemi> listeEnnemi;
     // Start is called before the first frame update
@@ -46,6 +46,7 @@ public class Spawner : MonoBehaviour
         //yield return new WaitForSeconds(20f);
         for (int i = 0; i < wave; i++)
         {
+            yield return new WaitForSeconds(10f);
             Enemi warrok = Instantiate(warrokPrefab, new Vector3(-11f, 0.6f, 57f), Quaternion.identity);
             listeEnnemi.Add(warrok);
             yield return new WaitForSeconds(Random.Range(1f, 6f));
