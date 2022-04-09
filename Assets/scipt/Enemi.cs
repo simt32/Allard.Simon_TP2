@@ -4,9 +4,12 @@ using UnityEngine;
 
 public  class Enemi : MonoBehaviour
 {
+    public AudioClip AudioMort;
+    public AudioSource source;
     public int or;
     public int pv;
     public int nbrKill;
+   
     public UnityEngine.AI.NavMeshAgent agent;
     
     //agent en d�placement ou en pause
