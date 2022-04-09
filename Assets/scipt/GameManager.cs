@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     public Text txt_pv;
     public Text txt_wave;
     public Text txt_tuer;
+    public GameObject txt_gameOver;
     private int pv = 3;
     public Spawner spawner;
-    public float gameTimer = 0f;
+    private float gameTimer = 0f;
     public Enemi enemi;
     public List<Enemi> listeEnnemi;
     private int or;
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public Button Pause;
     private int tuer;
     private int wave;
+    private bool isGameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isGameOver)
+            return;
         tuer = enemi.nbrKill;
         
         txt_tuer.text = tuer.ToString();
@@ -66,7 +70,9 @@ public class GameManager : MonoBehaviour
         txt_pv.text = pv.ToString();
         if(pv == 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            isGameOver = true;
+            Time.timeScale = 0;
+            txt_gameOver.SetActive(true);
         }
             
                  
