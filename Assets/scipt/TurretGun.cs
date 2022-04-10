@@ -7,9 +7,7 @@ public class TurretGun : MonoBehaviour
     public Transform target;
     public float range = 15f;
     public Transform Gun_Mid;
-    
     public float cadence = 1f;
-    private float delai = 0f;
     private float turnspeed = 6.5f;
     public Spawner spawner;
     public GameObject ennemii;
@@ -30,6 +28,7 @@ public class TurretGun : MonoBehaviour
         {
             return;
         }
+        //permet a la tourelle de faire une rotation pour pouvoir suivre l'ennemi quelle tire
         Vector3 positionEnemi = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(positionEnemi);
         Vector3 rotation = Quaternion.Lerp(Gun_Mid.rotation, lookRotation, Time.deltaTime * turnspeed).eulerAngles;
@@ -38,8 +37,10 @@ public class TurretGun : MonoBehaviour
 
     void UpdateTarget()
     {
+        //ajoute les ennemis de la scene dans un array
         GameObject[] ennemis = GameObject.FindGameObjectsWithTag("Ennemi");
-       
+       //pour tout les ennemis dans le array trouve la distance entre l'ennemis et la tourelle
+       //si il est a sa porter elle va lui tirer dessu
         foreach (GameObject ennemi in ennemis)
         {
             float distanceToEnemis = Vector3.Distance(transform.position, ennemi.transform.position);           
@@ -49,7 +50,9 @@ public class TurretGun : MonoBehaviour
                 //Debug.Log(ennemi.name);
                 target = ennemi.transform;
                 Toucher();
+                //affiche les particules
                 psShoot.Play();
+                //fait jouer le son 
                 source.PlayOneShot(audioClipShoot);  
             }
         }
@@ -57,7 +60,7 @@ public class TurretGun : MonoBehaviour
     }
     void Toucher()
     {
-        
+        //tout dépendament de quelle type d'ennemis est toucher on appelle la methode EnnemiToucher de la bonne classe 
         if (ennemii.name == "warrok(Clone)")
         {
             FindObjectOfType<Warlock>().EnnemiToucher();

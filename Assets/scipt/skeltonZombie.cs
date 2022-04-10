@@ -17,9 +17,9 @@ public class skeltonZombie : Enemi
         
         base.Start();
         source = FindObjectOfType<AudioSource>();
-        agent.speed = 3;
-        or = 3;
-        pv = 3;
+        agent.speed = 4;
+        or = 1;
+        pv = 4;
         
     }
 
@@ -35,13 +35,11 @@ public class skeltonZombie : Enemi
     //est appeler quand le skelton est toucher 
     public override void EnnemiToucher()
     {
-        
         pv -= 1;
         //si il na plus de pv on fait jouer le clip audio de mort et on le detrui dans une co routine apres
         if (pv == 0)
         {
             nbrKill += 1;
-            
             source.PlayOneShot(AudioMort);
             StartCoroutine(attendre());
         }

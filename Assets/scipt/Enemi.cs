@@ -14,15 +14,9 @@ public  class Enemi : MonoBehaviour
     
     //agent en d�placement ou en pause
     bool isBusy;
-
-    
-    
-    
     protected virtual void Start()
     {
-        
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-        
     }
 
     
@@ -37,24 +31,12 @@ public  class Enemi : MonoBehaviour
     IEnumerator  deplacement()
     {
         isBusy = true;
-
         //trouver une destination
         Vector3 destination = getDestination();
-
         //si deplacer
         agent.SetDestination(destination);
-
-
-        //tant quon est en deplacement on ne fait rien
-        while (agent.pathPending || agent.remainingDistance > 0.5f)
-
         yield return null;
-
-
-
-
         //je ne suis plus occuper
-
         isBusy = false;
     }
 

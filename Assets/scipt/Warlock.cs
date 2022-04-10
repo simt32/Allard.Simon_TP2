@@ -5,21 +5,13 @@ using UnityEngine.AI;
 
 public class Warlock : Enemi
 {
-   
     protected override void Start()
     {
-
         base.Start();
-        
         agent.speed = 3;
         or = 3;
-        pv = 7;
-       
-
+        pv = 4;
     }
-
-
-
     //est appeler quand le warrok est toucher 
     public override void EnnemiToucher()
     {
@@ -29,10 +21,7 @@ public class Warlock : Enemi
         {
             source.PlayOneShot(AudioMort);
             nbrKill += 1;
-            Debug.Log(nbrKill);
             StartCoroutine(attendre());
-            
-            
         }
 
         IEnumerator attendre()
@@ -40,8 +29,5 @@ public class Warlock : Enemi
             yield return new WaitForSeconds(1f);
             Destroy(gameObject);
         }
-
-
     }
-   
 }

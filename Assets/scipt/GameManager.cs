@@ -16,7 +16,6 @@ public class GameManager : MonoBehaviour
     private float gameTimer = 0f;
     public Enemi enemi;
     public List<Enemi> listeEnnemi;
-    private int or;
     public Button play;
     public Button Pause;
     private int tuer;
@@ -27,12 +26,9 @@ public class GameManager : MonoBehaviour
     {
         Pause.onClick.AddListener(btn_pause_onClicked);
         play.onClick.AddListener(btn_play_onClicked);
-        or = 2;
         txt_wave.text = wave.ToString();
         txt_pv.text = pv.ToString();
-       
         spawner.ennemiSpawn(wave);
-        
     }
 
     // Update is called once per frame
@@ -45,27 +41,20 @@ public class GameManager : MonoBehaviour
         txt_tuer.text = tuer.ToString();
         if (spawner.spawnIsFinish)
         {
-            //si il ny a plus d'ennemi on en fait spawner d'autre
+            //si il ny a plus d'ennemi on en fait spawner d'autre et on augmente la vague de 1
             if (GameObject.Find("warrok(Clone)") == null && GameObject.Find("sketonzombie(Clone)") == null && GameObject.Find("nightshade(Clone)") == null)
             {
                 wave += 1;
                 txt_wave.text = wave.ToString();
                 spawner.ennemiSpawn(wave);
-                    
-
             }
         }
-        
-       
         timer();
-       
-        
     }
     //methode appeller si un ennemi entre dans le collider pres du chateau
     //le joueur perd une vie et si il a 0 vie il perd la partie
     public void loseLife()
     {
-            
         pv -=1;
         txt_pv.text = pv.ToString();
         if(pv == 0)
@@ -74,10 +63,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             txt_gameOver.SetActive(true);
         }
-            
-                 
     }
-    
+    //affiche un timer avec les secondes,les minutes et les heures
     void timer()
     {
         gameTimer += Time.deltaTime;
